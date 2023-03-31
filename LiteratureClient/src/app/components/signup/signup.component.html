@@ -1,0 +1,52 @@
+<div class="container" style="
+width: 35%;
+padding: 30px;
+border: solid;
+border-width: thin;">
+    <form [formGroup]="signUpForm">
+        <div class="form-group">
+            <div class="input-field" [class.error]="signUpForm.controls['firstname'].dirty && signUpForm.hasError('required','firstname')">
+                <label for="exampleInputEmail1">First Name</label>
+                <input type="text" formControlName="firstname" class="form-control" id="loginFirstName" aria-describedby="firstnameHelp"
+                    placeholder="Enter First Name" required>
+                <small *ngIf="signUpForm.controls['firstname'].dirty && signUpForm.hasError('required','firstname')" class="text-danger">First Name is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-field" [class.error]="signUpForm.controls['lastname'].dirty && signUpForm.hasError('required','lastname')">
+                <label for="exampleInputEmail1">Last Name</label>
+                <input type="text" formControlName="lastname" class="form-control" id="loginLastName" aria-describedby="lastNameHelp"
+                    placeholder="Enter Last Name" required>
+                <small *ngIf="signUpForm.controls['lastname'].dirty && signUpForm.hasError('required','lastname')" class="text-danger">Last Name is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-field" [class.error]="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" formControlName="username" class="form-control" id="loginUserName" aria-describedby="emailHelp"
+                    placeholder="Enter User Name" required>
+                <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')" class="text-danger">Username is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-field" [class.error]="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="text" formControlName="email" class="form-control" id="loginUserName" aria-describedby="emailHelp"
+                    placeholder="Enter Email" required>
+                <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger">Email is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" formControlName="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')" class="text-danger">Password is required</small>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button (click)="onSubmit()" [disabled]="signUpForm.invalid" type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
