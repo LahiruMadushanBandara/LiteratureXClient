@@ -9,5 +9,7 @@ export class ApiService {
   private BaseUrl:string = "https://localhost:5000/";
   constructor( private http: HttpClient, private router:Router ) { }
 
-  
+  GetRecommendedLiteratures(userId:number) {
+    return this.http.get<any>(`${this.BaseUrl}Literature/${userId}`);
+  }
 }

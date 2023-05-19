@@ -1,1 +1,38 @@
-<p>home works!</p>
+<nav *ngIf="IsLoggedIn" id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+  <div class="position-sticky">
+    <div class="list-group list-group-flush mx-3 mt-4">
+      <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+          class="fas fa-globe fa-fw me-3"></i><span>Trending Literatures</span></a>
+      <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+          class="fas fa-building fa-fw me-3"></i><span>You may like</span></a>
+      <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+          class="fas fa-calendar fa-fw me-3"></i><span>Authors</span></a>
+      <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+          class="fas fa-users fa-fw me-3"></i><span>Manage literatures</span></a>
+          
+      <button (click)="signOut()">Logout</button>
+        
+    </div>
+  </div>
+</nav>
+
+<div class="row row-cols-3 g-3" style="margin-left: 200px;">
+  <div *ngFor="let item of recommendedList;" class="col">
+    <div class="card">
+      <img src="{{item.imageUrl}}" class="card-img-top"
+        alt="Hollywood Sign on The Hill" />
+      <div class="card-body">
+        <h5 class="card-title">{{item.literatureName}}</h5>
+        <p class="card-text">
+          {{item.description}}
+        </p>
+        <p class="card-text">
+          Prediction Score: {{item.ratingScore}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
